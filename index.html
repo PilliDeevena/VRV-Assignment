@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RBAC Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">
+      <img src="placeholder-logo.jpg" alt="Company Logo" class="logo">
+      <span class="brand-name">InnovateTech</span>
+    </div>
+    <div class="navbar-actions">
+      <input type="search" class="search-bar" placeholder="Search by Role or Name" aria-label="Search">
+      <span class="icon notifications-icon" title="Notifications">🔔</span>
+      <span class="icon profile-icon" title="User Profile">👤Pilli Deevena</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="content-header">
+      <h1>Manage Roles & User Permissions</h1>
+      <button class="btn btn-primary" onclick="openCreateRoleModal()">+ Create New Role</button>
+    </section>
+
+    <!-- Role Management Table -->
+    <section class="table-section">
+      <table class="roles-table">
+        <thead>
+          <tr>
+            <th>Role Name</th>
+            <th>Department</th>
+            <th>Description</th>
+            <th>Created By</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="roles-table-body">
+          <!-- Rows inserted dynamically -->
+        </tbody>
+      </table>
+      <div class="pagination">
+        <button class="btn btn-secondary" onclick="prevPage()">Previous</button>
+        <span id="pagination-info">Page 1 of 10</span>
+        <button class="btn btn-secondary" onclick="nextPage()">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="role-modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">×</span>
+      <h2 id="modal-title">Create Role</h2>
+      <form id="role-form" onsubmit="saveRole(event)">
+        <label for="role-name">Role Name</label>
+        <input type="text" id="role-name" placeholder="Enter role name" required>
+
+        <label for="belongs-to">Department</label>
+        <input type="text" id="belongs-to" placeholder="Enter department" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Enter role description"></textarea>
+
+        <button type="submit" class="btn btn-success">Save</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
